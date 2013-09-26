@@ -25,7 +25,7 @@ This proposal adds support to C++ for converting between host and network byte o
 Converting between host and network byte ordering is an essential component of many network programs. This proposal adds support for the four existing byte order converting function specified by \texttt{IEEE Std 1003.1-2008} that have been in use since the 1970s. Additionally two generic functions, and their specializations for unsigned integer types, are specified for converting between network and host byte order.
 
 \section{Design Decisions}
-The functions \texttt{htonl()}, \texttt{htons()}, \texttt{ntohl()}, and \texttt{ntohs()} are intentionally included even though they are not necessary given the \texttt{hton<T>()} and \texttt{ntoh<T>()} template functions. This is to maintain compatibility with the POSIX standard (\texttt{IEEE Std 1003.1-2008}) and to allow backwards compatibility with existing networking programs. The function names are also chosen to match existing names rather than using a more verbose and descriptive name such as \verb host_to_network. This choice is made as, within the network programming domain, texttt{ntoh} and texttt{hton} are established vocabulary terms.
+The functions \texttt{htonl()}, \texttt{htons()}, \texttt{ntohl()}, and \texttt{ntohs()} are intentionally included even though they are not necessary given the \texttt{hton<T>()} and \texttt{ntoh<T>()} template functions. This is to maintain compatibility with the POSIX standard (\texttt{IEEE Std 1003.1-2008}) and to allow backwards compatibility with existing networking programs. The function names are also chosen to match existing names rather than using a more verbose and descriptive name such as \verb host_to_network. This choice is made as, within the network programming domain, \texttt{ntoh} and \texttt{hton} are established vocabulary terms.
 
 \texttt{hton<T>()} and \texttt{ntoh<T>()} are specified as generic templates rather than listing overloads for \texttt{hton()} and \texttt{ntoh()}. This allows user extension of this function.
 
@@ -104,7 +104,7 @@ behaves the same as  \texttt{ntoh<uint16\_t>()}.
 \end{itemize}
 
 \section{Acknowledgments}
-Thanks for the editorial feedback from Darin Pantley and Rob Pratte. Thanks to Benjamin De Kosnik for early implementation validation. Thanks to Christof Meerwald for the suggestion of using \= delete. Thanks to Frank Birbacher for the suggestion to use \texttt{noexcept}. Thanks to the rest of SG4 group in attendance in Bristol for good discussion and feedback.
+Thanks for the editorial feedback from Darin Pantley and Rob Pratte. Thanks to Benjamin De Kosnik for early implementation validation. Thanks to Christof Meerwald for the suggestion of using \texttt{= delete}. Thanks to Frank Birbacher for the suggestion to use \texttt{noexcept}. Thanks to the rest of SG4 group in attendance in Bristol for good discussion and feedback.
 
 \section{References}
 \begin{itemize}
